@@ -1,0 +1,55 @@
+{
+    "name": "pingu1/yii2-minimal-api",
+    "description": "Yii 2 Minimal API template",
+    "keywords": ["yii2", "framework", "api"],
+    "type": "project",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "~2.0.5",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "guzzlehttp/guzzle": "> 4.1.4 <7.0",
+        "understeam/yii2-fcm": "~0.1",
+        "jumper423/yii2-vk": "2.*"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-faker": "~2.0.0",
+
+        "codeception/base": "^2.2.3",
+        "codeception/verify": "~0.3.1",
+        "codeception/specify": "~0.4.3",
+        "light/yii2-swagger": "~1.0.4"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset":{
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
+        }
+    },
+    "scripts": {
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject"
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777",
+                    "web/assets": "0777",
+                    "yii": "0755"
+                }
+            ],
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        }
+    }
+}

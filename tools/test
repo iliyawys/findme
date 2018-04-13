@@ -1,0 +1,6 @@
+#!/bin/bash
+
+auth="Authorization: Bearer tnPddUFvwQiMTbmDKZY5FPLRIcNygKZk"
+
+curl -v -F images[]=@1.jpg -F images[]=@2.jpg http://find2.dev/v1/upload/image -H "$auth"
+curl --request PATCH  http://find2.dev/v1/users/self -H "$auth" -H "Accept: application/json" -H "Content-Type:application/json" -X POST --data '{"last_name":"tester"}'
